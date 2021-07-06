@@ -1,0 +1,48 @@
+{% extends 'temp/user.html' %}
+ {% block base %}
+<h1 align="CENTER">CHANNEL NEWS VIEW</h1>
+
+      <style>
+     td{
+         color: whitesmoke;
+     }
+     </style>
+
+
+
+
+<table border="1" align="center">
+	<tr>
+        <td>IMAGE</td>
+        <td>TITLE</td>
+		<td>NEWS</td>
+		<td>AREA</td>
+		<td>DATE</td>
+		<td>TIME</td>
+	</tr>
+	 {% if val %}
+    {% for ob in val %}
+
+
+{#        <div class="card-deck">#}
+{#  <div class="card">#}
+{#   <img src="/static/{{ ob.image }}" width="100" class="card-img-top" alt="...">#}
+{#    <div class="card-body">#}
+{#      <h5 class="card-title">Card title{{ ob.title }}</h5>#}
+{#      <p class="card-text">{{ ob.news }}This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>#}
+{#      <p class="card-text"><small class="text-muted">posted on {{ ob.date }} {{ ob.time }}</small></p>#}
+{#    </div>#}
+{#  </div>#}
+
+	<tr>
+        <td>{{ ob.image }}</td>
+        <td>{{ ob.title }}</td>
+		<td>{{ ob.news}}</td>
+		<td>{{ ob.area}}</td>
+		<td>{{ ob.date}}</td>
+        <td>{{ ob.time}}</td>
+	</tr>
+ {% endfor %}
+{% endif %}
+</table>
+{% endblock %}

@@ -1,0 +1,46 @@
+{% extends 'temp/user.html' %}
+ {% block base %}
+	<h1 align="center">CHANNEL VIEW</h1>
+
+      <style>
+     td{
+         color: white;
+     }
+     </style>
+
+<table border="1" align="center">
+	<tr>
+		<th>CHANNEL NAME</th>
+		<th>LOCALBODY</th>
+{#		#}
+{#		<td>DISTRICT</td>#}
+{#        	<td>STATE</td>#}
+{#		<td>PIN</td>#}
+{#		<td>PHONE NUMBER</td>#}
+	</tr>
+
+ {% if objval %}
+    {% for ob in objval %}
+
+	<tr>
+		<td>{{ ob.name}}</td>
+{#		<td>{{ ob.location}}</td>#}
+
+		<td>{{ ob.municipality_panjayath}}</td>
+{#        <td>{{ ob.district}}</td>#}
+{#        <td>{{ ob.state}}</td>#}
+{#        <td>{{ ob.pin}}</td>#}
+{#		<td>{{ ob.phone_number}}</td>#}
+		<td>
+            <a href="{% url 'smore' idd=ob.c_id %}"class="btn btn-primary">View more</a>
+{#			<a href="{% url 'viewuserchannel' idd=ob.id %}" class="btn btn-primary">View More</a>#}
+		</td>
+{#    <td><a href="{% url 'chreject' idd=ob.id %}">REJECT</a>#}
+    </td>
+	</tr>
+     {% endfor %}
+{% endif %}
+
+
+</table>
+{% endblock %}

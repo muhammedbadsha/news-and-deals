@@ -1,0 +1,90 @@
+{% extends 'temp/contact.html' %}
+ {% block base %}
+
+       <style>
+     td{
+         color: black;
+     }
+       input,textarea{
+           background: white;
+       }
+     </style>
+
+<form method="POST">
+{% csrf_token %}
+
+    <h1 align="centere">REGISTRATION</h1>
+
+	<table style="color: black">
+		<tr style="color: black">
+			<td>CHANNEL NAME</td>
+			<td><input type="text" name="nm"></td>
+		</tr>
+		<tr>
+		<td>LOCATION</td>
+		<td><textarea name="loc" rows="5"></textarea></td>	
+		</tr>
+        <tr>
+        <td>USER NAME</td>
+			<td><input type="text" name="nm"></td>
+		</tr>
+			<td>MUNCIPALITY/PANCHAYATH</td>
+			<td><input type="text" name="plc"></td>
+		</tr>
+		<tr>
+			<td>District</td>
+			<td><select name="district">
+				<option value="">--Select District--</option>
+				<option value="kasaragod">kasaragod</option>
+				<option value="Kannur">Kannur</option>
+				<option value="Wayanadu">Wayanadu</option>
+				<option value="Kozhikode">Kozhikode</option>
+				<option value="Malappuram">Malappuram </option>
+				<option value=""> </option>
+				<option value=""> </option>
+				<option value=""> </option>
+				<option value=""> </option>
+				<option value=""> </option>
+				<option value=""> </option>
+				<option value=""> </option>
+				<option value=""> </option>
+				<option value=""> </option>
+				<option value=""> </option>
+				<option value=""> </option>
+				<option value=""> </option>
+				<option value=""> </option>
+				<option value=""> </option>
+
+			</select></td>
+		</tr>
+        <tr>
+            <td> STATE</td>
+        <td>
+            <input type="text" name="stn">
+        </td>
+        </tr>
+        <tr>
+			<td>PIN</td>
+			<td>
+				<input type="text" name="pin">
+			</td>
+		</tr>
+		<tr>
+			<td>PHONE NUMBER</td>
+			<td>
+				<input type="text" name="ph">
+			</td>
+		</tr>
+         <tr>
+			<td>Password</td>
+			<td>
+				<input type="text" name="pwd">
+			</td>
+         </tr>
+		<tr >
+			<td></td>
+			<td><input type="submit" name="sub" value="REGISTER"></td>
+		</tr>
+	</table>
+</form>
+{% endblock %}

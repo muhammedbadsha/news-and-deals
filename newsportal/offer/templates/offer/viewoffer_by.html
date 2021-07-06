@@ -1,0 +1,164 @@
+{% extends 'temp/user.html' %}
+ {% block base %}
+
+{#       <style>#}
+{#     td{#}
+{#         color: black;#}
+{#     }#}
+{#       input,textarea{#}
+{#           background: black;#}
+{#       }#}
+{#     </style>#}
+{#	<h1 align="center">OFFER</h1>#}
+{##}
+{#<table border="1" align="center">#}
+{#	<tr>#}
+{#		<td>PRODUCT NAME</td>#}
+{#		<td>OFFER</td>#}
+{#		<td>SHOP NAME</td>#}
+{#        <td>LOCATION</td>#}
+{#		<td>PHONE NUMBER</td>#}
+{#	</tr>#}
+{#	 {% if objval %}#}
+{#    {% for ob in objval %}#}
+{##}
+{#	<tr>#}
+{#		<td>{{ ob.product_name}}</td>#}
+{#		<td>{{ ob.offer}}</td>#}
+{#		<td>{{ ob.shop_name}}</td>#}
+{#        <td>{{ ob.location}}</td>#}
+{#		<td>{{ ob.phone_number}}</td>#}
+{#	</tr>#}
+{# {% endfor %}#}
+{#{% endif %}#}
+{#</table>#}
+
+
+     <div class="container py-5">
+
+  <!-- For demo purpose -->
+  <div class="row text-center text-black mb-5">
+    <div class="col-lg-7 mx-auto">
+      <h1 class="display-4">Offer list</h1>
+{#      <p class="lead mb-0">Create an elegant product list using Bootstrap 4 list group</p>#}
+{#      <p class="lead">Snippet by <a href="https://bootstrapious.com/snippets" class="text-white">#}
+{#                <u>Bootstrapious</u></a>#}
+{#      </p>#}
+    </div>
+  </div>
+  <!-- End -->
+
+{% if ob %}
+    {% for ob in ob %}
+
+  <div class="row">
+    <div class="col-lg-8 mx-auto">
+
+      <!-- List group-->
+      <ul class="list-group shadow">
+
+        <!-- list group item-->
+        <li class="list-group-item">
+          <!-- Custom content-->
+          <div class="media align-items-lg-center flex-column flex-lg-row p-3">
+            <div class="media-body order-2 order-lg-1">
+              <h5 class="mt-0 font-weight-bold mb-2">{{ ob.product_name}}</h5>
+              <p class="font-italic text-muted mb-0 small">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Suscipit fuga autem maiores necessitatibus.</p>
+              <div class="d-flex align-items-center justify-content-between mt-1">
+                <h6 class="font-weight-bold my-2">$120.00</h6>
+                <ul class="list-inline small">
+                  <li class="list-inline-item m-0"><i class="fa fa-star text-success"></i></li>
+                  <li class="list-inline-item m-0"><i class="fa fa-star text-success"></i></li>
+                  <li class="list-inline-item m-0"><i class="fa fa-star text-success"></i></li>
+                  <li class="list-inline-item m-0"><i class="fa fa-star text-success"></i></li>
+                  <li class="list-inline-item m-0"><i class="fa fa-star-o text-gray"></i></li>
+                </ul>
+              </div>
+            </div><img src="https://res.cloudinary.com/mhmd/image/upload/v1556485076/shoes-1_gthops.jpg" alt="Generic placeholder image" width="200" class="ml-lg-5 order-1 order-lg-2">
+          </div>
+          <!-- End -->
+        </li>
+        <!-- End -->
+
+{#        <!-- list group item-->#}
+{#        <li class="list-group-item">#}
+{#          <!-- Custom content-->#}
+{#          <div class="media align-items-lg-center flex-column flex-lg-row p-3">#}
+{#            <div class="media-body order-2 order-lg-1">#}
+{#              <h5 class="mt-0 font-weight-bold mb-2">Awesome product</h5>#}
+{#              <p class="font-italic text-muted mb-0 small">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Suscipit fuga autem maiores necessitatibus.</p>#}
+{#              <div class="d-flex align-items-center justify-content-between mt-1">#}
+{#                <h6 class="font-weight-bold my-2">$99.00</h6>#}
+{#                <ul class="list-inline small">#}
+{#                  <li class="list-inline-item m-0"><i class="fa fa-star text-success"></i></li>#}
+{#                  <li class="list-inline-item m-0"><i class="fa fa-star text-success"></i></li>#}
+{#                  <li class="list-inline-item m-0"><i class="fa fa-star text-success"></i></li>#}
+{#                  <li class="list-inline-item m-0"><i class="fa fa-star text-success"></i></li>#}
+{#                  <li class="list-inline-item m-0"><i class="fa fa-star text-success"></i></li>#}
+{#                </ul>#}
+{#              </div>#}
+{#            </div><img src="https://res.cloudinary.com/mhmd/image/upload/v1556485077/shoes-3_rk25rt.jpg" alt="Generic placeholder image" width="200" class="ml-lg-5 order-1 order-lg-2">#}
+{#          </div>#}
+{#          <!-- End -->#}
+{#        </li>#}
+{#        <!-- End -->#}
+{##}
+{#        <!-- list group item -->#}
+{#        <li class="list-group-item">#}
+{#          <!-- Custom content-->#}
+{#          <div class="media align-items-lg-center flex-column flex-lg-row p-3">#}
+{#            <div class="media-body order-2 order-lg-1">#}
+{#              <h5 class="mt-0 font-weight-bold mb-2">Awesome product</h5>#}
+{#              <p class="font-italic text-muted mb-0 small">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Suscipit fuga autem maiores necessitatibus.</p>#}
+{#              <div class="d-flex align-items-center justify-content-between mt-1">#}
+{#                <h6 class="font-weight-bold my-2">$140.00</h6>#}
+{#                <ul class="list-inline small">#}
+{#                  <li class="list-inline-item m-0"><i class="fa fa-star text-success"></i></li>#}
+{#                  <li class="list-inline-item m-0"><i class="fa fa-star text-success"></i></li>#}
+{#                  <li class="list-inline-item m-0"><i class="fa fa-star text-success"></i></li>#}
+{#                  <li class="list-inline-item m-0"><i class="fa fa-star text-success"></i></li>#}
+{#                  <li class="list-inline-item m-0"><i class="fa fa-star-o text-gray"></i></li>#}
+{#                </ul>#}
+{#              </div>#}
+{#            </div><img src="https://res.cloudinary.com/mhmd/image/upload/v1556485078/shoes-2_g4qame.jpg" alt="Generic placeholder image" width="200" class="ml-lg-5 order-1 order-lg-2">#}
+{#          </div>#}
+{#          <!-- End -->#}
+{#        </li>#}
+{#        <!-- End -->#}
+{##}
+{#        <!-- list group item -->#}
+{#        <li class="list-group-item">#}
+{#          <!-- Custom content-->#}
+{#          <div class="media align-items-lg-center flex-column flex-lg-row p-3">#}
+{#            <div class="media-body order-2 order-lg-1">#}
+{#              <h5 class="mt-0 font-weight-bold mb-2">Awesome product</h5>#}
+{#              <p class="font-italic text-muted mb-0 small">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Suscipit fuga autem maiores necessitatibus.</p>#}
+{#              <div class="d-flex align-items-center justify-content-between mt-1">#}
+{#                <h6 class="font-weight-bold my-2">$220.00</h6>#}
+{#                <ul class="list-inline small">#}
+{#                  <li class="list-inline-item m-0"><i class="fa fa-star text-success"></i></li>#}
+{#                  <li class="list-inline-item m-0"><i class="fa fa-star text-success"></i></li>#}
+{#                  <li class="list-inline-item m-0"><i class="fa fa-star text-success"></i></li>#}
+{#                  <li class="list-inline-item m-0"><i class="fa fa-star text-success"></i></li>#}
+{#                  <li class="list-inline-item m-0"><i class="fa fa-star text-success"></i></li>#}
+{#                </ul>#}
+{#              </div>#}
+{#            </div><img src="https://res.cloudinary.com/mhmd/image/upload/v1556485078/shoes-4_vgfjy9.jpg" alt="Generic placeholder image" width="200" class="ml-lg-5 order-1 order-lg-2">#}
+{#          </div>#}
+{#          <!-- End -->#}
+{#        </li>#}
+{#        <!-- End -->#}
+{##}
+      </ul>
+      <!-- End -->
+    </div>
+  </div>
+
+
+ {% endfor %}
+{% endif %}
+     </div>
+{% endblock %}
+
+
+

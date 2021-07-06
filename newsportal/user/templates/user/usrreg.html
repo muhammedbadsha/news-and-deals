@@ -1,0 +1,44 @@
+{% extends 'temp/contact.html' %}
+ {% block base %}
+
+       <style>
+     td{
+         color: black;
+     }
+       input,textarea{
+           background: white;
+       }
+     </style>
+<form method="POST">
+    {% csrf_token %}
+	<h1 align="centere">USER REGISTRATION</h1>
+
+	<table>
+
+		<tr>
+			<td>USER NAME</td>
+			<td><input type="text" name="nm"></td>
+		</tr>
+		<tr>
+			<td>EMAIL</td>
+			<td><input type="text" name="email"></td>
+		</tr>
+		<tr>
+			<td>PHONE NUMBER</td>
+			<td>
+				<input type="text" name="ph">
+			</td>
+		</tr>
+        <tr>
+			<td>Password</td>
+			<td>
+				<input type="text" name="pwd">
+			</td>
+		</tr>
+		<tr>
+			<td></td>
+			<td><input type="submit" name="sub" value="REGISTER"></td>
+		</tr>
+	</table>
+</form>
+{% endblock %}

@@ -1,0 +1,41 @@
+{% extends 'temp/shop.html' %}
+ {% block base %}
+
+
+       <style>
+     td{
+         color: black;
+     }
+       input,textarea{
+           background: white;
+       }
+     </style>
+
+<h1 align="center">OFFER</h1>
+
+<table border="1" align="center">
+	<tr>
+		<td>PRODUCT NAME</td>
+		<td>OFFER</td>
+		<td>SHOP NAME</td>
+        <td>LOCATION</td>
+		<td>PHONE NUMBER</td>
+	</tr>
+    {% if objval %}
+    {% for ob in objval %}
+
+	<tr>
+		<td>{{ ob.product_name}}</td>
+		<td>{{ ob.offer}}</td>
+		<td>{{ ob.shop_name}}</td>
+        <td>{{ ob.location}}</td>
+		<td>{{ ob.phone_number}}</td>
+    <td><a href="{% url 'odelete' idd=ob.id %}">DELETE</a>
+    </td>
+    <td><a href="{% url 'update' idd=ob.id %}">EDIT</a>
+    </td>
+	</tr>
+      {% endfor %}
+{% endif %}
+</table>
+{% endblock %}

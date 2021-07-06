@@ -1,0 +1,28 @@
+{% extends 'temp/contact.html' %}
+ {% block base %}
+<h1 align="center">LOGIN</h1>
+	<form method="POST">
+    {% csrf_token %}
+		<table align="center">
+
+			<tr style="color: black">
+				<td>USERNAME</td>
+				<td style="color: black"><input type="text" class="form-control" name="usr"></td>
+			</tr>
+			<tr  style="color: black">
+				<td>PASSWORD</td>
+				<td><input type="text" name="name"></td>
+			</tr>
+
+        <tr>
+            <td></td>
+			<td align="center"><input type="submit" name="log" value="LOGIN"></td>
+
+
+{#			<td><a href="/temp/ind/">signup</a></td>#}
+
+        </tr>
+
+</table>
+</form>
+{% endblock %}

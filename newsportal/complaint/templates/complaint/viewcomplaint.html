@@ -1,0 +1,37 @@
+{% extends 'temp/admin.html' %}
+ {% block base %}
+
+
+     <style>
+     td{
+         color: black;
+     }
+     </style>
+
+
+<h1 align="center">COMPLAINT</h1>
+<table  align="center" border="1" >
+	<tr>
+		<td>COMPLAINT</td>
+		<td>NEWS LINK</td>
+		<td>DATE</td>
+		<td>TIME</td>
+	</tr>
+	 {% if objval %}
+    {% for ob in objval %}
+
+	<tr>
+		<td>{{ ob.complaint}}</td>
+		<td>{{ ob.post_link}}</td>
+		<td>{{ ob.date }}</td>
+        <td>{{ ob.time }}</td>
+       <td>
+			<a href="{% url 'rcomplaint' idd=ob.id %}">REPLY</a>
+		</td>
+
+
+	</tr>
+ {% endfor %}
+{% endif %}
+</table>
+{% endblock %}

@@ -1,0 +1,50 @@
+{% extends 'temp/shop.html' %}
+ {% block base %}
+
+       <style>
+     td{
+         color: black;
+     }
+       input,textarea{
+           background: white;
+       }
+     </style>
+<form method="POST">
+    {% csrf_token %}
+    {% if objval %}
+
+	<h1 align="centere">UPDATE</h1>
+	<table>
+		<tr>
+			<td> PRODUCT NAME</td>
+			<td><input type="text" name="pname" value="{{ objval.product_name }}"></td>
+		</tr>
+		<tr>
+		<td>OFFER</td>
+			<td><input type="text" name="offer" value="{{ objval.offer }}"></td>
+		</tr>
+		<tr>
+			<td>SHOP NAME</td>
+			<td><input type="text" name="sname" value="{{ objval.shop_name }}"></td>
+		</tr>
+        <tr>
+            <td>
+                LOCATION
+            </td>
+            <td><input type="text" name="loc" value="{{ objval.location }}"></td>
+        </tr>
+		<tr>
+			<td>PHONE NUMBER</td>
+			<td>
+				<input type="text" name="ph" value="{{ objval.phone_number }}">
+			</td>
+		</tr>
+		<tr>
+			<td></td>
+			<td><input type="submit" name="sub" value="REGISTER"></td>
+		</tr>
+	</table>
+</form>
+
+     {% endif %}
+{% endblock %}

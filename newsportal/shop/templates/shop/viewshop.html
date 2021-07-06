@@ -1,0 +1,223 @@
+
+
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width,initial-scale=1,shrink-to-fit=no"
+    />
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <link rel="stylesheet" href="/static/service/CSS/main.css" />
+        <!-- Bootstrap core CSS -->
+  <link href="/static/boot/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Custom styles for this template -->
+  <link href="/static/boot/css/blog-home.css" rel="stylesheet">
+
+
+    <title>Emegency Call | Home</title>
+  </head>
+  <body>
+   <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+    <div class="container">
+      <a class="navbar-brand" href="#">Start Bootstrap</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="/channelnews/channelnews1/">Home
+              <span class="sr-only">(current)</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/channel/vuserchannel/">Channels</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/service/vservice/">Services</a>
+          </li>
+            	<div class="dropdown">
+  		            <input class="btn btn-default dropdown-toggle" type="button" id="menu1" data-toggle="dropdown"value="Shop"/>
+ 						 <span class="caret"></span>
+					  <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
+
+                        <li role="presentation"><a role="menuitem" href="/shop/vshop/">Shop</a></li>
+                        <li role="presentation"><a role="menuitem" href="/offer/voffer/">Offer</a></li>
+
+					  </ul>
+					  </div>
+          <li class="nav-item">
+            <a class="nav-link" href="/complaint/complaint/">Contact</a>
+          </li>
+              <li class="nav-item">
+            <a class="nav-link" href="/login/login/">login</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+    <div class="Jumbotron">
+      <div class="container">
+        <h1> SHOP&nbsp; <span class="fa fa-shopping-cart"></span></h1>
+        <p>Single place to call all emergency services.</p>
+      </div>
+    </div>
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-6">
+            <form method="post">
+                {% csrf_token %}
+          <h2><span class="fa fa-home"></span>SHOP:</h2>
+            <ol class="breadcrumb">
+              <li class="breadcrumb-item"> Shop:</li>
+			<li class="breadcrumb-item">
+               <select name="dis" style="color: black">
+				<option value="">--Select --</option>
+         {% for ob in val %}
+
+				<option value="{{ ob.district }}">{{ ob.district }}</option>
+     {% endfor %}
+            </select>
+            </li>
+
+              <li class="breadcrumb-item">
+                  <input type="submit" value="submit" style="color: black">
+              </li>
+{#            <li class="breadcrumb-item"><a href="index.html">Home</a></li>#}
+{#            <li class="breadcrumb-item active"><a href="fire.html">Fire</a></li>#}
+          </ol>
+          <hr />
+
+          <div class="container">
+            <div class="row">
+              <br />
+              <p class="well">
+                This is a single page to solve all your emergency problem in
+                fust few taps. You can find all the details to your nearest
+                hospital, police station and fire station.<br /><br />You can
+                brows between the pages to find which emergency service you are
+                in need for.
+              </p>
+            </div>
+          </div>
+
+        </div>
+        <div class="col-sm-6">
+          <img src="/static/service/Images/shop.png" class="img-fluid" />
+        </div>
+      </div>
+      <hr />
+
+      {% if val %}
+    {% for ob in val %}
+
+{#          <h2>{{ ob.service_name}}</h2>#}
+{#          <hr />#}
+{#                 </div>#}
+
+
+      <div class="container">
+           <div class="row">
+        <div class="col-sm-6">
+{#          <div class="card">#}
+            <h3 class="card-header bg-warning text-white">
+              Nearest {{ ob.shop_name}}
+            </h3>
+            <div class="card-body">
+              <div class="row">
+                <h3>{{ ob.shop_name}}<br /></h3>
+                <hr />
+                <div>
+                  <h5>Address</h5>
+                  <address style="font-size: 100%">
+                    {{ ob.municipality_panjayath}}<br />{{ ob.district}}<br />{{ ob.state}}<br /><i
+                      class="fa fa-phone"
+                    ></i
+                    >: {{ ob.phone_number}}<br /><i class="fa fa-fax"></i>:
+                   {{ ob.phone_number}}<br /><i class="fa fa-envelope"></i>:
+                    <a href="mailto:#">mail@example.com</a>
+                  </address>
+                    <a href="{% url 'omore' idd=ob.id %}" class="btn btn-success btn-block">View More</a>
+                </div>
+                <div class="col-12 col-sm-11 offset-sm-1">
+                  <div class="btn-group" role="group">
+
+                     <a
+                      role="button"
+                      class="btn btn-info"
+                      href="tel:{{ ob.phone_number}}"
+                      ><i class="fa fa-mobile-phone"></i> Mobile</a
+                    >
+                    <a role="button" class="btn btn-success"
+                      ><i class="fa fa-envelope-o"></i> Email</a
+                    >
+                  </div>
+                </div>
+              </div>
+{#            </div>#}
+          </div>
+        </div>
+        <div class="col-sm-6">
+{#          <div class="card">#}
+{#            <h3 class="card-header bg-warning text-white">#}
+{#              Nearest {{ ob.service_name}}#}
+{#            </h3>#}
+{#            <div class="card-body">#}
+{#              <div class="row">#}
+{#                <h3>Atlas Fire<br />Services</h3>#}
+{#                <hr />#}
+{#                <div>#}
+{#                  <h5>Address</h5>#}
+{#                  <address style="font-size: 100%">#}
+{#                    {{ ob.municipality_panjayath}}<br />Dehradun, Uttarakhand<br />India<br /><i#}
+{#                      class="fa fa-phone"#}
+{#                    ></i#}
+{#                    >: +91 1234567890<br /><i class="fa fa-fax"></i>: +91#}
+{#                    1234567890<br /><i class="fa fa-envelope"></i>:#}
+{#                    <a href="mailto:">mail@example.com</a>#}
+{#                  </address>#}
+{#                </div>#}
+{#                <div class="col-12 col-sm-11 offset-sm-1">#}
+{#                  <div class="btn-group" role="group">#}
+{#                    <a role="button" class="btn btn-primary"#}
+{#                      ><i class="fa fa-phone"></i> Landline</a#}
+{#                    >#}
+{#                    <a role="button" class="btn btn-info"#}
+{#                      ><i class="fa fa-mobile-phone"></i> Mobile</a#}
+{#                    >#}
+{#                    <a role="button" class="btn btn-success"#}
+{#                      ><i class="fa fa-envelope-o"></i> Email</a#}
+{#                    >#}
+{#                  </div>#}
+{#                </div>#}
+{#              </div>#}
+{#            </div>#}
+{#          </div>#}
+{#        </div>#}
+{#      </div>#}
+{#    </div>#}
+{#          </div>#}
+        </div>
+           </div>
+                 </div>
+    <br />
+
+           {% endfor %}
+{% endif %}
+  </form>
+    </div>
+   <footer class="py-5 bg-dark">
+    <div class="container">
+      <p class="m-0 text-center text-white">Copyright &copy; Your Website 2020</p>
+    </div>
+    <!-- /.container -->
+  </footer>
+  </body>
+
+    <script src="/static/service/JavaScript/main.js"></script>
+</html>

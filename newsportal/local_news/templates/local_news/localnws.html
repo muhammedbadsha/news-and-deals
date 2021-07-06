@@ -1,0 +1,43 @@
+{% extends 'temp/channel.html' %}
+ {% block base %}
+
+
+<form method="POST">
+     {% csrf_token %}
+	<h1 align="centere">LOCAL INFORMATION</h1>
+	<table>
+		<tr>
+			<td>Informations</td>
+			<td><textarea name="news" rows="5"></textarea></td>
+		</tr>
+	
+		<tr>
+			<td>area</td>
+			<td><input type="text" name="area"></td>
+
+		</tr>
+		<!-- <tr>
+			<td>PHONE NUMBER</td>
+			<td><!DOCTYPE html>
+
+				<input type="text" name="ph">
+			</td>
+		</tr> -->
+		
+<tr><td>date</td>
+        	<td><input type="date" name="date"></td>
+        </tr>
+        <tr>
+        	<td>time</td>
+        	<td><input type="time" name="time"></td>
+        </tr>
+		<tr>
+			<td></td>
+			<td><input type="submit" name="sub" value="POST"></td>
+		</tr>
+	</table>
+</form>
+
+
+
+{% endblock %}

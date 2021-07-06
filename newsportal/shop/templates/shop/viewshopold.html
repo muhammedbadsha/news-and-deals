@@ -1,0 +1,68 @@
+{% extends 'temp/user.html' %}
+ {% block base %}
+
+
+       <style>
+     td{
+         color: black;
+     }
+       input,textarea{
+           background: black;
+       }
+     </style>
+<h1 align="center">SHOP</h1>
+<form method="post">
+{% csrf_token %}
+     <select name="dis" style="color: black">
+				<option value="">--Select --</option>
+         {% for ob in val %}
+
+				<option value="{{ ob.district }}">{{ ob.district }}</option>
+     {% endfor %}
+            </select>
+<input type="submit" value="submit" style="color: black">
+</form>
+
+<table border="1" align="center">
+	<tr>
+		<td>SHOP NAME</td>
+		<td>AREA LOCATION</td>
+		<td>DISTRICT</td>
+        <td> STATE</td>
+		<td>PHONE NUMBER</td>
+
+	</tr>
+    {% if objval %}
+    {% for ob in objval %}
+
+	<tr>
+		<td>{{ ob.shop_name}}</td>
+		<td>{{ ob.area_location}}</td>
+		<td>{{ ob.district}}</td>
+        <td>{{ ob.state}}</td>
+		<td>{{ ob.phone_number}}</td>
+    <td>
+			<a href="{% url 'omore' idd=ob.id %}" class="btn btn-primary">View More</a>
+		</td>
+	</tr>
+{#        </table>#}
+      {% endfor %}
+{% endif %}
+{#    #}
+    {% if val %}
+    {% for ob in val %}
+
+	<tr>
+		<td>{{ ob.shop_name}}</td>
+		<td>{{ ob.area_location}}</td>
+		<td>{{ ob.district}}</td>
+        <td>{{ ob.state}}</td>
+		<td>{{ ob.phone_number}}</td>
+    <td>
+			<a href="{% url 'omore' idd=ob.id %}" class="btn btn-primary">View More</a>
+		</td>
+	</tr>
+      {% endfor %}
+{% endif %}
+</table>
+{% endblock %}

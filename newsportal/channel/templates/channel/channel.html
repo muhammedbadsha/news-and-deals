@@ -1,0 +1,48 @@
+{% extends 'temp/admin.html' %}
+ {% block base %}
+	<h1 align="center">CHANNEL VIEW</h1>
+
+         <style>
+     td{
+         color: black;
+     }
+       input,textarea{
+           background: white;
+       }
+     </style>
+
+<table border="1" align="center">
+	<tr>
+		<td>CHANNEL NAME</td>
+		<td>LOCATION</td>
+		<td>LOCALBODY</td>
+		<td>DISTRICT</td>
+        	<td>STATE</td>
+		<td>PIN</td>
+		<td>PHONE NUMBER</td>
+	</tr>
+
+ {% if objval %}
+    {% for ob in objval %}
+
+	<tr>
+		<td>{{ ob.name}}</td>
+		<td>{{ ob.location}}</td>
+
+		<td>{{ ob.municipality_panjayath}}</td>
+        <td>{{ ob.district}}</td>
+        <td>{{ ob.state}}</td>
+        <td>{{ ob.pin}}</td>
+		<td>{{ ob.phone_number}}</td>
+		<td>
+			<a href="{% url 'chapprove' idd=ob.c_id %}">APPROVE</a>
+		</td>
+    <td><a href="{% url 'chreject' idd=ob.c_id iid=ob.c_id%}">REJECT</a>
+    </td>
+	</tr>
+     {% endfor %}
+{% endif %}
+
+
+</table>
+{% endblock %}
