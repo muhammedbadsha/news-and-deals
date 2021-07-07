@@ -1,0 +1,47 @@
+{% extends 'temp/admin.html' %}
+ {% block base %}
+	<h1 align="center">SHOP VIEW</h1>
+
+         <style>
+     td{
+         color: black;
+     }
+       input,textarea{
+           background: white;
+       }
+     </style>
+
+<table border="1" align="center">
+	<tr>
+		<td>Shop NAME</td>
+		<td>LOCATION</td>
+		<td>LOCALBODY</td>
+		<td>DISTRICT</td>
+        	<td>STATE</td>
+		<td>PIN</td>
+		<td>PHONE NUMBER</td>
+	</tr>
+
+   {% if val %}
+    {% for ob in val %}
+
+	<tr>
+		<td>{{ ob.name}}</td>
+		<td>{{ ob.location}}</td>
+
+		<td>{{ ob.municipality_panjayath}}</td>
+        <td>{{ ob.district}}</td>
+        <td>{{ ob.pin}}</td>
+		<td>{{ ob.phone_number}}</td>
+		<td>
+			<a href="{% url 'shapprove' idd=ob.sid %}">APPROVE</a>
+		</td>
+    <td><a href="{% url 'shreject' idd=ob.sid iid=ob.sid%}">REJECT</a>
+    </td>
+	</tr>
+     {% endfor %}
+{% endif %}
+
+
+</table>
+{% endblock %}

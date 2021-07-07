@@ -24,6 +24,7 @@ def view_channel(request):
 
 
     return render(request, 'channel/post channel.html')
+
 def viewchannel(request):
     ob=Channel.objects.all()
     context ={
