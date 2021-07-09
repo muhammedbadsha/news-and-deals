@@ -12,6 +12,7 @@
 
   <!-- Bootstrap core CSS -->
   <link href="/static/news/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
 
   <!-- Custom styles for this template -->
   <link href="/static/news/blog-home.css" rel="stylesheet">
@@ -22,7 +23,7 @@
 
   <!-- Navigation -->
   <!-- Navigation -->
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
     <div class="container">
       <a class="navbar-brand" href="/channelnews/channelnews1/">NewsandDeals</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
@@ -30,7 +31,7 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav ml-auto">
-          <li class="nav-item active">
+          <li class="nav-item ">
             <a class="nav-link" href="/channelnews/channelnews1/">Home
               <span class="sr-only">(current)</span>
             </a>
@@ -41,21 +42,22 @@
           <li class="nav-item">
             <a class="nav-link" href="/service/vservice/">Services</a>
           </li>
-            	<div class="dropdown">
-  		            <input class="btn btn-default dropdown-toggle" type="button" id="menu1" data-toggle="dropdown"value="Shop"/>
- 						 <span class="caret"></span>
-					  <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
 
-                        <li role="presentation"><a role="menuitem" href="/shop/vshop/">Shop</a></li>
-                        <li role="presentation"><a role="menuitem" href="/offer/voffer/">Offer</a></li>
+              <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Product
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="/shop/vshop/">Shop</a>
+          <a class="dropdown-item" href="/offer/voffer/">Offer</a>
+        </div>
+              </li>
 
-					  </ul>
-					  </div>
           <li class="nav-item">
             <a class="nav-link" href="/complaint/complaint/">Contact</a>
           </li>
               <li class="nav-item">
-            <a class="nav-link" href="/login/login/">login</a>
+            <a class="nav-link" href="/login/login/">Login</a>
           </li>
         </ul>
       </div>
@@ -70,21 +72,7 @@
 
       <!-- Blog Entries Column -->
       <div class="col-md-8">
-{##}
-{#        <h1 class="my-4">Page Heading#}
-{#          <small>Secondary Text</small>#}
-{#        </h1>#}
 
-
-
-{#        {% block base %}#}
-{##}
-{##}
-{##}
-{#        {% endblock %}#}
-
-
-        <!-- Blog Post -->
          {% if objval %}
     {% for ob in objval %}
 
@@ -92,14 +80,16 @@
 {#          <img class="card-img-top" src="/static/{{ ob.image }}" width="100"alt="Card image cap">#}
           <div class="card-body">
             <h2 class="card-title">{{ ob.name}}</h2>
-            <p class="card-text">{{ ob.municipality_panjayath}}</p>
+              <p class="card-text">{{ ob.location}}<br/>{{ ob.district}}<br/>India</p>
+              <p class="card-text"></p>
+
 {#              <a href="#" class="btn btn-primary">Read More &rarr;</a>#}
-              <a href="{% url 'smore' idd=ob.c_id %}"class="btn btn-primary">View more&rarr;</a>
+              <a href="{% url 'smore' idd=ob.c_id %}"class="btn btn-primary">View more</a>
           </div>
-          <div class="card-footer text-muted">
-            Posted on {{ ob.date}} by
-            <a href="#">{{ ob.c.name }}</a>
-          </div>
+{#          <div class="card-footer text-muted">#}
+{#            Posted on {{ obj.date}} by#}
+{#            <a href="#">{{ obj.c.name }}</a>#}
+{#          </div>#}
         </div>
 
       {% endfor %}
@@ -149,53 +139,53 @@
       <!-- Sidebar Widgets Column -->
       <div class="col-md-4">
 
-        <!-- Search Widget -->
-        <div class="card my-4">
-          <h5 class="card-header">Search</h5>
-          <div class="card-body">
-            <div class="input-group">
-              <input type="text" class="form-control" placeholder="Search for...">
-              <span class="input-group-append">
-                <button class="btn btn-secondary" type="button">Go!</button>
-              </span>
-            </div>
-          </div>
-        </div>
+{#        <!-- Search Widget -->#}
+{#        <div class="card my-4">#}
+{#          <h5 class="card-header">Search</h5>#}
+{#          <div class="card-body">#}
+{#            <div class="input-group">#}
+{#              <input type="text" class="form-control" placeholder="Search for...">#}
+{#              <span class="input-group-append">#}
+{#                <button class="btn btn-secondary" type="button">Go!</button>#}
+{#              </span>#}
+{#            </div>#}
+{#          </div>#}
+{#        </div>#}
 
-        <!-- Categories Widget -->
-        <div class="card my-4">
-          <h5 class="card-header">Categories</h5>
-          <div class="card-body">
-            <div class="row">
-              <div class="col-lg-6">
-                <ul class="list-unstyled mb-0">
-                  <li>
-                    <a href="#">Web Design</a>
-                  </li>
-                  <li>
-                    <a href="#">HTML</a>
-                  </li>
-                  <li>
-                    <a href="#">Freebies</a>
-                  </li>
-                </ul>
-              </div>
-              <div class="col-lg-6">
-                <ul class="list-unstyled mb-0">
-                  <li>
-                    <a href="#">JavaScript</a>
-                  </li>
-                  <li>
-                    <a href="#">CSS</a>
-                  </li>
-                  <li>
-                    <a href="#">Tutorials</a>
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </div>
+{#        <!-- Categories Widget -->#}
+{#        <div class="card my-4">#}
+{#          <h5 class="card-header">Categories</h5>#}
+{#          <div class="card-body">#}
+{#            <div class="row">#}
+{#              <div class="col-lg-6">#}
+{#                <ul class="list-unstyled mb-0">#}
+{#                  <li>#}
+{#                    <a href="#">Web Design</a>#}
+{#                  </li>#}
+{#                  <li>#}
+{#                    <a href="#">HTML</a>#}
+{#                  </li>#}
+{#                  <li>#}
+{#                    <a href="#">Freebies</a>#}
+{#                  </li>#}
+{#                </ul>#}
+{#              </div>#}
+{#              <div class="col-lg-6">#}
+{#                <ul class="list-unstyled mb-0">#}
+{#                  <li>#}
+{#                    <a href="#">JavaScript</a>#}
+{#                  </li>#}
+{#                  <li>#}
+{#                    <a href="#">CSS</a>#}
+{#                  </li>#}
+{#                  <li>#}
+{#                    <a href="#">Tutorials</a>#}
+{#                  </li>#}
+{#                </ul>#}
+{#              </div>#}
+{#            </div>#}
+{#          </div>#}
+{#        </div>#}
 
         <!-- Side Widget -->
         <div class="card my-4">
@@ -216,7 +206,16 @@
   <!-- Footer -->
   <footer class="py-5 bg-dark">
     <div class="container">
-      <p class="m-0 text-center text-white">Copyright &copy; NewsandDeals 2021 | Made with <span style="color: #e25555;">&hearts;</span> in Kozhikode</p>
+        <div class="container">
+</div>
+         <div class="text-center center-block">
+                <a href="https://www.facebook.com/"><i class="fa fa-facebook-square fa-3x social"></i></a>
+	            <a href="https://twitter.com/"><i class="fa fa-twitter-square fa-3x social"></i></a>
+	            <a href="https://plus.google.com/"><i class="fa fa-google-plus-square fa-3x social"></i></a>
+	            <a href="mailto:.com"><i class="fa fa-envelope-square fa-3x social"></i></a>
+</div>
+      <p class="m-0 text-center text-white">Copyright &copy; NewsandDeals 2021</p>
+        <p class="m-0 text-center text-white">  Made with <span style="color: #e25555;">&hearts;</span> in Kozhikode</p>
     </div>
     <!-- /.container -->
   </footer>

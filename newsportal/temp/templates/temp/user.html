@@ -8,21 +8,20 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>Home - NewsandDeals</title>
+  <title>Home - News and Deals</title>
 
   <!-- Bootstrap core CSS -->
-  <link href="/static/boot/vendor/bootstrap/css/bootstrap.min.css/" rel="stylesheet">
+  <link href="/static/news/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
   <!-- Custom styles for this template -->
-  <link href="/static/boot/css/blog-home.css" rel="stylesheet">
+  <link href="/static/news/blog-home.css" rel="stylesheet">
 
 </head>
 
 <body>
 
   <!-- Navigation -->
-  <!-- Navigation -->
-  <!-- Navigation -->
+<!-- Navigation -->
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
     <div class="container">
       <a class="navbar-brand" href="/channelnews/channelnews1/">NewsandDeals</a>
@@ -63,24 +62,48 @@
     </div>
   </nav>
 
-{#  <!-- Page Content -->#}
-{#  <div class="container">#}
-{##}
-{#    <div class="row">#}
-{##}
-{#      <!-- Blog Entries Column -->#}
-{#      <div class="col-md-8">#}
-{##}
-          {% block base %}
+  <!-- Page Content -->
+  <div class="container">
 
+    <div class="row">
 
-
-        {% endblock %}
+      <!-- Blog Entries Column -->
+      <div class="col-md-8">
 {##}
 {#        <h1 class="my-4">Page Heading#}
 {#          <small>Secondary Text</small>#}
 {#        </h1>#}
+
+
+
+{#        {% block base %}#}
 {##}
+{##}
+{##}
+{#        {% endblock %}#}
+
+
+        <!-- Blog Post -->
+         {% if objval %}
+    {% for ob in objval %}
+
+         <div class="card mb-4">
+          <img class="card-img-top" src="/static/{{ ob.image }}" width="100"alt="Card image cap">
+          <div class="card-body">
+            <h2 class="card-title">{{ ob.title }}</h2>
+            <p class="card-text">{{ ob.news}}</p>
+{#              <a href="#" class="btn btn-primary">Read More &rarr;</a>#}
+          </div>
+          <div class="card-footer text-muted">
+            Posted on {{ ob.date}} by
+            <a href="#">{{ ob.c.name }}</a>
+          </div>
+        </div>
+
+      {% endfor %}
+{% endif %}
+      </div>
+
 {#        <!-- Blog Post -->#}
 {#        <div class="card mb-4">#}
 {#          <img class="card-img-top" src="http://placehold.it/750x300" alt="Card image cap">#}
@@ -108,22 +131,8 @@
 {#            <a href="#">Start Bootstrap</a>#}
 {#          </div>#}
 {#        </div>#}
-{##}
-{#        <!-- Blog Post -->#}
-{#        <div class="card mb-4">#}
-{#          <img class="card-img-top" src="http://placehold.it/750x300" alt="Card image cap">#}
-{#          <div class="card-body">#}
-{#            <h2 class="card-title">Post Title</h2>#}
-{#            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis aliquid atque, nulla? Quos cum ex quis soluta, a laboriosam. Dicta expedita corporis animi vero voluptate voluptatibus possimus, veniam magni quis!</p>#}
-{#            <a href="#" class="btn btn-primary">Read More &rarr;</a>#}
-{#          </div>#}
-{#          <div class="card-footer text-muted">#}
-{#            Posted on January 1, 2020 by#}
-{#            <a href="#">Start Bootstrap</a>#}
-{#          </div>#}
-{#        </div>#}
-{##}
-{#        <!-- Pagination -->#}
+
+        <!-- Pagination -->
 {#        <ul class="pagination justify-content-center mb-4">#}
 {#          <li class="page-item">#}
 {#            <a class="page-link" href="#">&larr; Older</a>#}
@@ -134,26 +143,29 @@
 {#        </ul>#}
 {##}
 {#      </div>#}
-{##}
-{#      <!-- Sidebar Widgets Column -->#}
-{#      <div class="col-md-4">#}
-{##}
-{#        <!-- Search Widget -->#}
+
+      <!-- Sidebar Widgets Column -->
+      <div class="col-md-4">
+
+        <!-- Search Widget -->
+        <div class="card my-4">
+          <h5 class="card-header">Search</h5>
+          <div class="card-body">
+            <div class="input-group">
+                <form method="post">
+                    {% csrf_token %}
+              <input type="text" class="form-control" placeholder="Search for...">
+              <span class="input-group-append">
+                <input type="submit" class="btn btn-secondary" name="s">
+              </span>
+                    </form>
+            </div>
+          </div>
+        </div>
+
+        <!-- Categories Widget -->
 {#        <div class="card my-4">#}
-{#          <h5 class="card-header">Search</h5>#}
-{#          <div class="card-body">#}
-{#            <div class="input-group">#}
-{#              <input type="text" class="form-control" placeholder="Search for...">#}
-{#              <span class="input-group-append">#}
-{#                <button class="btn btn-secondary" type="button">Go!</button>#}
-{#              </span>#}
-{#            </div>#}
-{#          </div>#}
-{#        </div>#}
-{##}
-{#        <!-- Categories Widget -->#}
-{#        <div class="card my-4">#}
-{#          <h5 class="card-header">Categories</h5>#}
+{#          <h5 class="card-header">Menu</h5>#}
 {#          <div class="card-body">#}
 {#            <div class="row">#}
 {#              <div class="col-lg-6">#}
@@ -185,34 +197,34 @@
 {#            </div>#}
 {#          </div>#}
 {#        </div>#}
-{##}
-{#        <!-- Side Widget -->#}
-{#        <div class="card my-4">#}
-{#          <h5 class="card-header">Side Widget</h5>#}
-{#          <div class="card-body">#}
-{#            You can put anything you want inside of these side widgets. They are easy to use, and feature the new Bootstrap 4 card containers!#}
-{#          </div>#}
-{#        </div>#}
-{##}
-{#      </div>#}
-{##}
-{#    </div>#}
-{#    <!-- /.row -->#}
-{##}
-{#  </div>#}
-{#  <!-- /.container -->#}
+
+        <!-- Side Widget -->
+        <div class="card my-4">
+          <h5 class="card-header">Side Widget</h5>
+          <div class="card-body">
+           comming soon
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+    <!-- /.row -->
+
+  </div>
+  <!-- /.container -->
 
   <!-- Footer -->
   <footer class="py-5 bg-dark">
     <div class="container">
-      <p class="m-0 text-center text-white">Copyright &copy; NewsandDeals 2021 | Made with <span style="color: #e25555;">&hearts;</span> in Kozhikode</p>
+       <p class="m-0 text-center text-white">Copyright &copy; NewsandDeals 2021 | Made with <span style="color: #e25555;">&hearts;</span> in Kozhikode</p>
     </div>
     <!-- /.container -->
   </footer>
 
   <!-- Bootstrap core JavaScript -->
-  <script src="/static/boot/vendor/jquery/jquery.min.js"></script>
-  <script src="/static/boot/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="/static/news/vendor/jquery/jquery.min.js"></script>
+  <script src="/static/news/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
 </body>
 

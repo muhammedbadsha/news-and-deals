@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="/static/service/CSS/main.css" />
         <!-- Bootstrap core CSS -->
   <link href="/static/boot/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+       <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
 
   <!-- Custom styles for this template -->
   <link href="/static/boot/css/blog-home.css" rel="stylesheet">
@@ -27,7 +28,7 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav ml-auto">
-          <li class="nav-item active">
+          <li class="nav-item ">
             <a class="nav-link" href="/channelnews/channelnews1/">Home
               <span class="sr-only">(current)</span>
             </a>
@@ -36,18 +37,19 @@
             <a class="nav-link" href="/channel/vuserchannel/">Channels</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="/service/vservice/">Services</a>
+            <a class="nav-link active" href="/service/vservice/">Services</a>
           </li>
-            	<div class="dropdown">
-  		            <input class="btn btn-default dropdown-toggle" type="button" id="menu1" data-toggle="dropdown"value="Shop"/>
- 						 <span class="caret"></span>
-					  <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
 
-                        <li role="presentation"><a role="menuitem" href="/shop/vshop/">Shop</a></li>
-                        <li role="presentation"><a role="menuitem" href="/offer/voffer/">Offer</a></li>
+              <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Product
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="/shop/vshop/">Shop</a>
+          <a class="dropdown-item" href="/offer/voffer/">Offer</a>
+        </div>
+              </li>
 
-					  </ul>
-					  </div>
           <li class="nav-item">
             <a class="nav-link" href="/complaint/complaint/">Contact</a>
           </li>
@@ -70,7 +72,7 @@
         <div class="col-sm-6">
             <form method="post">
                 {% csrf_token %}
-          <h2><span class="fa fa-home"></span> &nbsp; SERVICE:</h2>
+          <h2><span class="fa fa-home"></span> &nbsp;SERVICE:</h2>
             <ol class="breadcrumb">
               <li class="breadcrumb-item"> SERVICE:</li>
 			<li class="breadcrumb-item">
@@ -111,107 +113,86 @@
       </div>
       <hr />
 
-       {% if objval %}
+
+
+
+
+    <div class="row">
+             {% if objval %}
              {% for ob in objval %}
 
-{#          <h2>{{ ob.service_name}}</h2>#}
-{#          <hr />#}
-{#                 </div>#}
-
-      <div class="container">
-           <div class="row">
         <div class="col-sm-6">
-{#          <div class="card">#}
-            <h3 class="card-header bg-warning text-white">
-              Nearest {{ ob.service_name}}
-            </h3>
+          <div class="card">
+            <h3 class="card-header bg-danger text-white">Nearest {{ ob.service_name}}</h3>
             <div class="card-body">
               <div class="row">
-                <h3>{{ ob.service_name}}<br />Station</h3>
+                <h3>{{ ob.service_name}}</h3>
                 <hr />
                 <div>
                   <h5>Address</h5>
                   <address style="font-size: 100%">
-                    {{ ob.municipality_panjayath}}<br />{{ ob.district}}<br />{{ ob.state}}<br /><i
+                    {{ob.municipality_panjayath}}<br /> {{obj.state}}<br />{{obj.district}}<br/>India<br /><i
                       class="fa fa-phone"
                     ></i
-                    >: {{ ob.phone_number}}<br /><i class="fa fa-fax"></i>:
-                   {{ ob.phone_number}}<br /><i class="fa fa-envelope"></i>:
-                    <a href="mailto:#">mail@example.com</a>
+                    >: {{ ob.phone_number }}<br />
+{#                  <i class="fa fa-envelope"></i>:#}
+{#                    <a href="mailto:{ }}"#}
+{#                      >info@synergyhealthcare.in</a#}
+{#                    >#}
                   </address>
+                    <address style="font-size: 100%">Date posted {{ ob.date }} at time {{ ob.time }}</h5></address>
                 </div>
                 <div class="col-12 col-sm-11 offset-sm-1">
                   <div class="btn-group" role="group">
-                    <a role="button" class="btn btn-primary"
-                      ><i class="fa fa-phone"></i> Landline</a
-                    >
-                     <a
+{#                    <a#}
+{#                      role="button"#}
+{#                      class="btn btn-primary"#}
+{#                      href="tel:+91-1352226000"#}
+{#                      ><i class="fa fa-phone"></i> Landline</a#}
+{#                    >#}
+                    <a
                       role="button"
                       class="btn btn-info"
-                      href="tel:{{ ob.phone_number}}"
+                      href="tel:+91{{ ob.phone_number }}"
                       ><i class="fa fa-mobile-phone"></i> Mobile</a
                     >
-                    <a role="button" class="btn btn-success"
+                    <a
+                      role="button"
+                      class="btn btn-success"
+                      href="mailto:info@synergyhealthcare.in"
                       ><i class="fa fa-envelope-o"></i> Email</a
                     >
                   </div>
                 </div>
               </div>
-{#            </div>#}
+            </div>
           </div>
+        <br>
         </div>
-        <div class="col-sm-6">
-{#          <div class="card">#}
-{#            <h3 class="card-header bg-warning text-white">#}
-{#              Nearest {{ ob.service_name}}#}
-{#            </h3>#}
-{#            <div class="card-body">#}
-{#              <div class="row">#}
-{#                <h3>Atlas Fire<br />Services</h3>#}
-{#                <hr />#}
-{#                <div>#}
-{#                  <h5>Address</h5>#}
-{#                  <address style="font-size: 100%">#}
-{#                    {{ ob.municipality_panjayath}}<br />Dehradun, Uttarakhand<br />India<br /><i#}
-{#                      class="fa fa-phone"#}
-{#                    ></i#}
-{#                    >: +91 1234567890<br /><i class="fa fa-fax"></i>: +91#}
-{#                    1234567890<br /><i class="fa fa-envelope"></i>:#}
-{#                    <a href="mailto:">mail@example.com</a>#}
-{#                  </address>#}
-{#                </div>#}
-{#                <div class="col-12 col-sm-11 offset-sm-1">#}
-{#                  <div class="btn-group" role="group">#}
-{#                    <a role="button" class="btn btn-primary"#}
-{#                      ><i class="fa fa-phone"></i> Landline</a#}
-{#                    >#}
-{#                    <a role="button" class="btn btn-info"#}
-{#                      ><i class="fa fa-mobile-phone"></i> Mobile</a#}
-{#                    >#}
-{#                    <a role="button" class="btn btn-success"#}
-{#                      ><i class="fa fa-envelope-o"></i> Email</a#}
-{#                    >#}
-{#                  </div>#}
-{#                </div>#}
-{#              </div>#}
-{#            </div>#}
-{#          </div>#}
-{#        </div>#}
-{#      </div>#}
-{#    </div>#}
-{#          </div>#}
-        </div>
-           </div>
-                 </div>
-    <br />
 
-           {% endfor %}
+              {% endfor %}
+
 {% endif %}
-  </form>
+
     </div>
-   <footer class="py-5 bg-dark">
+
+              </div>
+
+
+    <br>
+
+    <footer class="py-5 bg-dark">
     <div class="container">
-      <p class="m-0 text-center text-white">Copyright &copy; Your Website 2020</p>
+        <div class="container">
+</div>
+         <div class="text-center center-block">
+                <a href="https://www.facebook.com/"><i class="fa fa-facebook-square fa-3x social"></i></a>
+	            <a href="https://twitter.com/"><i class="fa fa-twitter-square fa-3x social"></i></a>
+	            <a href="https://plus.google.com/"><i class="fa fa-google-plus-square fa-3x social"></i></a>
+	            <a href="mailto:.com"><i class="fa fa-envelope-square fa-3x social"></i></a>
+</div>
+      <p class="m-0 text-center text-white">Copyright &copy; NewsandDeals 2021</p>
+        <p class="m-0 text-center text-white">  Made with <span style="color: #e25555;">&hearts;</span> in Kozhikode</p>
     </div>
     <!-- /.container -->
   </footer>
@@ -219,3 +200,4 @@
 
     <script src="/static/service/JavaScript/main.js"></script>
 </html>
+
