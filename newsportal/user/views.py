@@ -30,15 +30,15 @@ def viewuser(request):
     return render(request, 'user/usrreg.html', context)
 
 
-# def search(request):
-#     if request.method=='POST':
-#         ar=request.POST.get('s')
-#         ob=ChannelNews.objects.filter(area__contains=ar)
-#         context={
-#             'val':ob,
-#         }
-#         return render(request, 'user/search.html',context)
-#     return render(request,'user/search.html')
+def search(request):
+    if request.method=='POST':
+        ar=request.POST.get('s')
+        ob=ChannelNews.objects.filter(area__contains=ar)
+        context={
+            'val':ob,
+        }
+        return render(request, 'user/search.html',context)
+    return render(request,'user/search.html')
 
 # def aprrove(request,idd):
 #     ob=Subadmin.objects.get(id=idd)

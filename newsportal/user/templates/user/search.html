@@ -1,58 +1,58 @@
-{#{% extends 'temp/srch.html' %}#}
-{#{% block base %}#}
-{##}
-{#    <style>#}
-{#     td{#}
-{#         color: white;#}
-{#     }#}
-{#       input,textarea{#}
-{#           background: white;#}
-{#       }#}
-{#     </style>#}
-{#    <form method="post">#}
-{#{% csrf_token %}#}
-{#<table>#}
-{##}
-{#<tr>#}
-{#    <td>search</td>#}
-{#    <td>     <input type="text" name="s" placeholder="Search area news..." >#}
-{#</td>#}
-{##}
-{#</tr>#}
-{#<tr>#}
-{#    <td>#}
-{#                <input type="submit" name="ss">#}
-{##}
-{#    </td>#}
-{##}
-{#</tr>#}
-{##}
-{#</table>#}
-{#                </form>#}
-{##}
-{##}
-{#     <table border="1" align="center" style="color: black">#}
-{#	<tr>#}
-{#        <th>IMAGE</th>#}
-{#        <th>TITLE</th>#}
-{#		<th>NEWS</th>#}
-{#		<th>AREA</th>#}
-{#		<th>DATE</th>#}
-{#		<th>TIME</th>#}
-{#	</tr>#}
-{#	 {% if objval %}#}
-{#    {% for ob in val %}#}
-{##}
-{#	<tr>#}
-{#     <td > <img src="/static/{{ ob.image }}" width="100"> </td>#}
-{#        <td>{{ ob.title }}</td>#}
-{#		<td>{{ ob.news}}</td>#}
-{#		<td>{{ ob.area}}</td>#}
-{#		<td>{{ ob.date}}</td>#}
-{#        <td>{{ ob.time}}</td>#}
-{#	</tr>#}
-{#     {% endfor %}#}
-{#     </table>#}
-{#     {% endif %}#}
-{##}
-{#{% endblock %}#}
+{% extends 'temp/srch.html' %}
+{% block base %}
+
+    <style>
+     td{
+         color: white;
+     }
+       input,textarea{
+           background: white;
+       }
+     </style>
+    <form method="post">
+{% csrf_token %}
+<table>
+
+<tr>
+    <td>search</td>
+    <td>     <input type="text" name="s" placeholder="Search area news..." >
+</td>
+
+</tr>
+<tr>
+    <td>
+                <input type="submit" name="ss">
+
+    </td>
+
+</tr>
+
+</table>
+                </form>
+
+
+     <table border="1" align="center" style="color: black">
+	<tr>
+        <th>IMAGE</th>
+        <th>TITLE</th>
+		<th>NEWS</th>
+		<th>AREA</th>
+		<th>DATE</th>
+		<th>TIME</th>
+	</tr>
+	 {% if objval %}
+    {% for ob in val %}
+
+	<tr>
+     <td > <img src="/static/{{ ob.image }}" width="100"> </td>
+        <td>{{ ob.title }}</td>
+		<td>{{ ob.news}}</td>
+		<td>{{ ob.area}}</td>
+		<td>{{ ob.date}}</td>
+        <td>{{ ob.time}}</td>
+	</tr>
+     {% endfor %}
+     </table>
+     {% endif %}
+
+{% endblock %}

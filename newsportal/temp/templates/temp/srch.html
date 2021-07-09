@@ -40,7 +40,7 @@ x{% extends 'temp/user.html' %}
 		<th>DATE</th>
 		<th>TIME</th>
 	</tr>
-{#	 {% if objval %}#}
+	 {% if objval %}
     {% for ob in val %}
 
 	<tr>
@@ -53,6 +53,6 @@ x{% extends 'temp/user.html' %}
 	</tr>
      {% endfor %}
      </table>
-{#     {% endif %}#}
+     {% endif %}
 
 {% endblock %}

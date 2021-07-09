@@ -12,10 +12,8 @@ def view_channel(request):
         obj.logid=1
         obj.name=request.POST.get('nm')
         obj.location=request.POST.get('loc')
-        obj. municipality_panjayath=request.POST.get('plc')
         obj.district=request.POST.get('district')
-        obj.state=request.POST.get('stn')
-        obj.pin=request.POST.get('pin')
+        obj.email=request.POST.get('email')
         obj.phone_number=request.POST.get('ph')
         obj.password = request.POST.get('pwd')
         obj.status="pending"

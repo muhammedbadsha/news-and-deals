@@ -1,28 +1,80 @@
-{% extends 'temp/contact.html' %}
- {% block base %}
-<h1 align="center">LOGIN</h1>
-	<form method="POST">
-    {% csrf_token %}
-		<table align="center">
 
-			<tr style="color: black">
-				<td>USERNAME</td>
-				<td style="color: black"><input type="text" class="form-control" name="usr"></td>
-			</tr>
-			<tr  style="color: black">
-				<td>PASSWORD</td>
-				<td><input type="text" name="name"></td>
-			</tr>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Sign in - NewsandDeals</title>
 
-        <tr>
-            <td></td>
-			<td align="center"><input type="submit" name="log" value="LOGIN"></td>
+    <!-- Font Icon -->
+    <link rel="stylesheet" href="/static/login/fonts/material-icon/css/material-design-iconic-font.min.css">
+
+    <!-- Main css -->
+    <link rel="stylesheet" href="/static/login/css/style.css">
+
+{#    bootstrap cdn#}
+{#    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">#}
+</head>
+<body>
 
 
-{#			<td><a href="/temp/ind/">signup</a></td>#}
+    <div class="main">
 
-        </tr>
+        <!-- Sign up form -->
 
-</table>
-</form>
-{% endblock %}
+
+        <!-- Sing in  Form -->
+        <section class="sign-in">
+            <div class="container">
+                <div class="signin-content">
+                    <div class="signin-image">
+                        <figure><img src="/static/login/images/signin-image.jpg" alt="sing up image"></figure>
+{#                         <a class="btn btn-primary btn-lg btn-block" href="#" role="button">Register as Shop</a>#}
+{#                         <a class="btn btn-primary btn-lg btn-block" href="#" role="button">Register as channel</a>#}
+                    </div>
+
+                    <div class="signin-form">
+
+                        <h2 class="form-title">Sign up</h2>
+                        <form method="POST" class="register-form" id="login-form">
+                            {% csrf_token %}
+                            <div class="form-group">
+                                <label for="your_name"><i class="zmdi zmdi-account material-icons-name"></i></label>
+                                <input type="text" name="usr" id="your_name" placeholder="Your Name"/>
+                            </div>
+                            <div class="form-group">
+                                <label for="your_pass"><i class="zmdi zmdi-lock"></i></label>
+                                <input type="password" name="name" id="your_pass" placeholder="Password"/>
+                            </div>
+                            <div class="form-group">
+                                <input type="checkbox" name="remember-me" id="remember-me" class="agree-term" />
+                                <label for="remember-me" class="label-agree-term"><span><span></span></span>Remember me</label>
+                            </div>
+                            <div class="form-group form-button">
+                                <input type="submit" name="signin" id="signin" class="form-submit" value="Log in"/>
+                            </div>
+                        </form>
+                        <div class="social-login">
+                            <span class="social-label">Or Register as</span>
+                            <ul class="socials">
+                                <li>
+                         <a class="btn btn-primary btn-lg btn-block" href="/channel/channel/" role="button">channel</a></li>
+                                <li>
+                         <a class="btn btn-primary btn-lg btn-block" href="/shop/shop/" role="button">shop</a></li>
+
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </div>
+
+    <!-- JS -->
+    <script src="/static/login/vendor/jquery/jquery.min.js"></script>
+    <script src="/static/login/js/main.js"></script>
+</body><!-- This templates was made by Colorlib (https://colorlib.com) -->
+</html>
+

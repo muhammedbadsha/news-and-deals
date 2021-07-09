@@ -2,15 +2,16 @@ from django.shortcuts import render
 from shop.models import Shop
 from login.models import Login
 from offer.models import Offer
+from django.contrib import messages
 # Create your views here.
 def postshop(request):
     if request.method=="POST":
         obj=Shop()
         obj.logid=1
         obj.shop_name=request.POST.get('pnm')
-        obj.area_location=request.POST.get('sn')
+        obj.location=request.POST.get('sn')
         obj.district=request.POST.get('dis')
-        obj.state=request.POST.get('stn')
+        obj.email=request.POST.get('email')
         obj.phone_number=request.POST.get('ph')
         obj.password = request.POST.get('pwd')
         ob = Login()
@@ -19,6 +20,7 @@ def postshop(request):
         ob.uid=obj.logid
         ob.type="shop"
         obj.save()
+        messages.success(request, 'Contact request submitted successfully.')
 
     return render(request,'shop/shop.html')
 def viewshop(request):

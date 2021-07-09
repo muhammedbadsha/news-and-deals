@@ -6,8 +6,7 @@
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.2" />
 		<meta name="format-detection" content="telephone=no" />
-		<meta name="keywords" content="Medic, Medical Center" />
-		<meta name="description" content="Responsive Medical Health Template" />
+
 		<!--style-->
 		<link href='//fonts.googleapis.com/css?family=Roboto:300,400,700' rel='stylesheet' type='text/css'>
 		<link href='//fonts.googleapis.com/css?family=Roboto+Condensed:300,400,700' rel='stylesheet' type='text/css'>
@@ -220,6 +219,16 @@
 
 				</nav>
 
+                {% if messages %}
+  {% for message in messages %}
+    <div class="alert alert-dismissible alert-success">
+      <button type="button" class="close" data-dismiss="alert">
+      ×
+      </button>
+      <strong>{{message}}<strong>
+    </div>
+ {% endfor %}
+{% endif %}
 			</div>
 			<div class="page">
 				<div class="page_header clearfix page_margin_top">

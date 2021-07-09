@@ -5,6 +5,7 @@ from django.db import models
 class Offer(models.Model):
     sid = models.IntegerField()
     product_name = models.CharField(max_length=25)
+    image = models.CharField(max_length=2000)
     offer = models.CharField(max_length=25)
     shop_name = models.CharField(max_length=50)
     location = models.CharField(max_length=50)

@@ -1,5 +1,7 @@
 from django.shortcuts import render
 from offer.models import Offer
+from django.core.files.storage import FileSystemStorage
+from django.http import HttpResponse
 from shop.models import Shop
 # Create your views here.
 def postoffer(request):
@@ -11,7 +13,11 @@ def postoffer(request):
         obj.shop_name=request.POST.get('sname')
         obj.location=request.POST.get('loc')
         obj.phone_number=request.POST.get('ph')
-        obj.status="pending"
+        myfile = request.FILES['img']
+        fs = FileSystemStorage()
+        filename = fs.save(myfile.name, myfile)
+        obj.image = myfile.name
+        # obj.status="pending"
         obj.save()
     return render(request,'offer/offer.html')
 def viewoffer(request):
