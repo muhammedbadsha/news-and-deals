@@ -24,7 +24,8 @@ def viewchannel(request):
 
 def viewchannel_news(request):
     # o=Channel.objects.all()
-    ob=ChannelNews.objects.filter(status='pending')
+    # ChannelNews.objects.all().order_by('-date')
+    ob=ChannelNews.objects.filter(status='pending').order_by('-date')
     context={
         'objval':ob,
     }
@@ -37,8 +38,18 @@ def viewchannel_news(request):
         return render(request, 'user/search.html', context)
     return render(request,'channel_news/viewchannelnws.html',context)
 
+# def viewchannel_news(request):
+# #     news_list = ChannelNews.objects.all().
+
 def managechannelnews(request):
     ob=ChannelNews.objects.all()
+    context={
+        'objval':ob,
+    }
+    return render(request,'channel_news/managechannelnws.html',context)
+
+def managechannelnews(request):
+    ob=ChannelNews.objects.filter()
     context={
         'objval':ob,
     }

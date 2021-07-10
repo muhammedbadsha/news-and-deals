@@ -11,8 +11,8 @@ class ChannelNews(models.Model):
     title = models.CharField(max_length=100)
     news = models.CharField(max_length=2000)
     area = models.CharField(max_length=100)
-    date = models.DateField()
-    time = models.TimeField()
+    date = models.DateField(auto_now_add=True)
+    time = models.TimeField(auto_now_add=True)
     status = models.CharField(max_length=25)
 
     class Meta:

@@ -15,24 +15,22 @@
 	<tr>
 		<td>Shop NAME</td>
 		<td>LOCATION</td>
-		<td>LOCALBODY</td>
 		<td>DISTRICT</td>
-        	<td>STATE</td>
-		<td>PIN</td>
 		<td>PHONE NUMBER</td>
+            <td>Email</td>
 	</tr>
 
    {% if val %}
     {% for ob in val %}
 
 	<tr>
-		<td>{{ ob.name}}</td>
+		<td>{{ ob.shop_name}}</td>
 		<td>{{ ob.location}}</td>
-
-		<td>{{ ob.municipality_panjayath}}</td>
         <td>{{ ob.district}}</td>
-        <td>{{ ob.pin}}</td>
+
 		<td>{{ ob.phone_number}}</td>
+        <td>{{ ob.email}}</td>
+
 		<td>
 			<a href="{% url 'shapprove' idd=ob.sid %}">APPROVE</a>
 		</td>

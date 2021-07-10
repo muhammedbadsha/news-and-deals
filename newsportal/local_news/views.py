@@ -1,39 +1,40 @@
 from django.shortcuts import render
 from local_news.models import LocalNews
+from channel_news.models import ChannelNews
 # Create your views here.
 def postlocalnews(request):
     if request.method=="POST":
-        obj=LocalNews()
-        obj.news=request.POST.get('news')
-        obj.area=request.POST.get('area')
-        obj.date=request.POST.get('date')
-        obj.time=request.POST.get('time')
-        obj.save()
+        info=LocalNews()
+        info.news=request.POST.get('news')
+        info.area=request.POST.get('area')
+        info.date=request.POST.get('date')
+        info.time=request.POST.get('time')
+        info.save()
     return render(request,'local_news/localnws.html')
 def viewlocalnews(request):
-    ob=LocalNews.objects.all()
+    info=LocalNews.objects.all()
     context={
-        'objval':ob,
+        'objval':info,
     }
 
-    return render(request,'local_news/viewlocalnws',context)
+    return render(request,'channel_news/viewchannelnws.html',context)
 
 def viewslocalnews(request):
-    ob=LocalNews.objects.all()
+    info=LocalNews.objects.all()
     context={
-        'objval':ob,
+        'objval':info,
     }
 
-    return render(request,'local_news/subview.html',context)
+    return render(request,'channel_news/viewchannelnws.html',context)
 
-def locaprrove(request,idd):
-    ob=LocalNews.objects.get(id=idd)
-    ob.status='active'
-    ob.save()
-    return viewslocalnews(request)
-
-def locreject(request,idd):
-    ob=LocalNews.objects.get(id=idd)
-    ob.status='block'
-    ob.save()
-    return viewslocalnews(request)
+# def locaprrove(request,idd):
+#     ob=LocalNews.objects.get(id=idd)
+#     ob.status='active'
+#     ob.save()
+#     return viewslocalnews(request)
+#
+# def locreject(request,idd):
+#     ob=LocalNews.objects.get(id=idd)
+#     ob.status='block'
+#     ob.save()
+#     return viewslocalnews(request)
