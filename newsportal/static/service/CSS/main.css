@@ -4398,7 +4398,6 @@ tbody.collapse.show {
   padding-right: 1rem;
   /* padding-left: 0.5rem; */
   /* color: #6c757d;
-  content: "/";
 } */
 .breadcrumb-item + .breadcrumb-item:hover::before {
   text-decoration: underline;
@@ -4408,7 +4407,7 @@ tbody.collapse.show {
 }
 .breadcrumb-item.active {
   color: #6c757d;
-} */
+}
 .pagination {
   display: -webkit-box;
   display: -ms-flexbox;

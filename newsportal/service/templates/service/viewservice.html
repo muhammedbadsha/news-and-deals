@@ -72,21 +72,21 @@
         <div class="col-sm-6">
             <form method="post">
                 {% csrf_token %}
-          <h2><span class="fa fa-home"></span> &nbsp;SERVICE:</h2>
             <ol class="breadcrumb">
-              <li class="breadcrumb-item"> SERVICE:</li>
-			<li class="breadcrumb-item">
-              <select name="service" style="color: black">
+              <li class="breadcrumb-item">
+                  <h3 class="justify-content-lg-center">SERVICE:&nbsp;</h3></li>
+			<li>
+              <select name="service" class="custom-select" style="color: black">
 				<option value="">--Select Service--</option>
 				<option value="Emergency">Emergency</option>
 				<option value="public service">public service</option>
 				<option value="Bus schedule">Bus schedule</option>
 				<option value="taxi">Taxi</option>
             </select>
-            </li>
+            </li>&nbsp;
 
-              <li class="breadcrumb-item">
-                  <input type="submit" value="submit" style="color: black">
+              <li>
+                    <button value="submit" type="submit" class="btn btn-dark">Submit</button>
               </li>
 {#            <li class="breadcrumb-item"><a href="index.html">Home</a></li>#}
 {#            <li class="breadcrumb-item active"><a href="fire.html">Fire</a></li>#}
@@ -123,7 +123,7 @@
 
         <div class="col-sm-6">
           <div class="card">
-            <h3 class="card-header bg-danger text-white">Nearest {{ ob.service_name}}</h3>
+            <h3 class="card-header bg-danger text-white">{{ ob.service_category}}</h3>
             <div class="card-body">
               <div class="row">
                 <h3>{{ ob.service_name}}</h3>
@@ -140,7 +140,7 @@
 {#                      >info@synergyhealthcare.in</a#}
 {#                    >#}
                   </address>
-                    <address style="font-size: 100%">Date posted {{ ob.date }} at time {{ ob.time }}</h5></address>
+                    <address style="font-size: 100%">Posted on {{ ob.date }} at {{ ob.time }}</address>
                 </div>
                 <div class="col-12 col-sm-11 offset-sm-1">
                   <div class="btn-group" role="group">

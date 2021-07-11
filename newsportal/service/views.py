@@ -4,7 +4,8 @@ from service.models import Service
 def postservice(request):
     if request.method=="POST":
         obj=Service()
-        obj.service_name=request.POST.get('service')
+        obj.service_category=request.POST.get('service')
+        obj.service_name = request.POST.get('sn')
         obj.municipality_panjayath=request.POST.get('munipanch')
         obj.district=request.POST.get('district')
         obj.state=request.POST.get('state')
@@ -16,7 +17,7 @@ def postservice(request):
 def viewservice(request):
     if request.method=="POST":
         name=request.POST.get('service')
-        ob = Service.objects.filter(service_name=name)
+        ob = Service.objects.filter(service_category=name)
         context = {
             'objval': ob,
         }

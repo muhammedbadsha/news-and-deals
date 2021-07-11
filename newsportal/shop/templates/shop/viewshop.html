@@ -72,21 +72,24 @@
         <div class="col-sm-6">
             <form method="post">
                 {% csrf_token %}
-          <h2><span class="fa fa-home"></span> &nbsp;SHOP:</h2>
             <ol class="breadcrumb">
-              <li class="breadcrumb-item"> Shop:</li>
-			<li class="breadcrumb-item">
-               <select name="dis" style="color: black">
-				<option value="">--Select --</option>
+              <li class="breadcrumb-item">
+                  <h3 class="justify-content-lg-center">SHOP:&nbsp;</h3></li>
+			<li>
+			<li>
+              <li>
+              <select name="dis" class="custom-select" style="color: black">
+				<option value="">--Select district --</option>
          {% for ob in val %}
 
 				<option value="{{ ob.district }}">{{ ob.district }}</option>
      {% endfor %}
             </select>
-            </li>
 
-              <li class="breadcrumb-item">
-                  <input type="submit" value="submit" style="color: black">
+            </li> &nbsp;
+
+              <li>
+                  <button value="submit" type="submit" class="btn btn-dark">Submit</button>
               </li>
 {#            <li class="breadcrumb-item"><a href="index.html">Home</a></li>#}
 {#            <li class="breadcrumb-item active"><a href="fire.html">Fire</a></li>#}

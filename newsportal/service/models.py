@@ -2,6 +2,7 @@ from django.db import models
 
 # Create your models here.
 class Service(models.Model):
+    service_category = models.CharField(max_length=50)
     service_name = models.CharField(max_length=50)
     municipality_panjayath = models.CharField(db_column='municipality/panjayath', max_length=50)  # Field renamed to remove unsuitable characters.
     district = models.CharField(max_length=50)
@@ -13,5 +14,4 @@ class Service(models.Model):
     class Meta:
         managed = False
         db_table = 'service'
-
 

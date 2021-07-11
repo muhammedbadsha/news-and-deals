@@ -1,30 +1,69 @@
 {% extends 'temp/admin.html' %}
  {% block base %}
-	<h1 align="center">SHOP VIEW</h1>
 
-         <style>
-     td{
-         color: black;
-     }
-       input,textarea{
-           background: white;
-       }
-     </style>
+     <!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>Tables - SB Admin</title>
+        <link href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css" rel="stylesheet" />
+        <link href="css/styles.css" rel="stylesheet" />
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js" crossorigin="anonymous"></script>
+    </head>
 
-<table border="1" align="center">
-	<tr>
-		<td>Shop NAME</td>
-		<td>LOCATION</td>
-		<td>DISTRICT</td>
-		<td>PHONE NUMBER</td>
-            <td>Email</td>
+
+<form method="POST" enctype="multipart/form-data">
+     {% csrf_token %}
+ <main>
+                    <div class="container-fluid px-4">
+                        <h1 class="mt-2 text-white">Tables</h1>
+{#                        <ol class="breadcrumb mb-4">#}
+{#                            <li class="breadcrumb-item"><a href="index.html">Dashboard</a></li>#}
+{#                            <li class="breadcrumb-item active">Tables</li>#}
+{#                        </ol>#}
+{#                        <div class="card mb-4">#}
+{#                            <div class="card-body">#}
+{#                                DataTables is a third party plugin that is used to generate the demo table below. For more information about DataTables, please visit the#}
+{#                                <a target="_blank" href="https://datatables.net/">official DataTables documentation</a>#}
+{#                                .#}
+{#                            </div>#}
+{#                        </div>#}
+                        <div class="card mb-4">
+                            <div class="card-header">
+                                <i class="fas fa-table me-1"></i>
+                                Channel News
+                            </div>
+                            <div class="card-body">
+                                <table id="datatablesSimple">
+                                    <thead>
+                                       <tr>
+		<th>Shop NAME</th>
+		<th>LOCATION</th>
+		<th>DISTRICT</th>
+		<th>PHONE NUMBER</th>
+            <th>Email</th>
+                                           <th>Approve</th>
+                                           <th>Reject</th>
 	</tr>
-
-   {% if val %}
-    {% for ob in val %}
-
-	<tr>
-		<td>{{ ob.shop_name}}</td>
+                                    </thead>
+{#                                    <tfoot>#}
+{#                                        <tr>#}
+{#                                            <th>Name</th>#}
+{#                                            <th>Position</th>#}
+{#                                            <th>Office</th>#}
+{#                                            <th>Age</th>#}
+{#                                            <th>Start date</th>#}
+{#                                            <th>Salary</th>#}
+{#                                        </tr>#}
+{#                                    </tfoot>#}
+                                    <tbody>
+                           {% if val %}
+    {% for ob in val %}            <tr>
+                                           <td>{{ ob.shop_name}}</td>
 		<td>{{ ob.location}}</td>
         <td>{{ ob.district}}</td>
 
@@ -36,10 +75,21 @@
 		</td>
     <td><a href="{% url 'shreject' idd=ob.sid iid=ob.sid%}">REJECT</a>
     </td>
-	</tr>
-     {% endfor %}
+                                        </tr>
+                                    </tbody>
+                                     {% endfor %}
 {% endif %}
-
-
-</table>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </main>
+    </form>
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+        <script src="js/scripts.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/simple-datatables@latest" crossorigin="anonymous"></script>
+        <script src="js/datatables-simple-demo.js"></script>
+    </body>
+</html>
+</html>
 {% endblock %}
